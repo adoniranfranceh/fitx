@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  document: MyString
+  phone: MyString
+  payment_at: 2023-04-04
+  age: 1
+  weigth: 1.5
+  height: 1
+
+two:
+  name: MyString
+  document: MyString
+  phone: MyString
+  payment_at: 2023-04-04
+  age: 1
+  weigth: 1.5
+  height: 1
