@@ -1,1 +1,25 @@
 <h1>Clientes</h1>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col"></th>
+        <th scope="col"><%= link_to 'Adicionar novo', new_customer_path, class: 'btn btn-success' %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer| %>   
+      <tr>
+        <th scope="row"><%= customer.id %></th>
+        <td><%= customer.name %></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
