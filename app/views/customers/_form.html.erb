@@ -21,12 +21,6 @@
     </div>
 
     <div class="mb-3">
-      <% if @customer&.payment_at %>
-        <%= form.date_field :payment_at, class: 'form-control', value: @post.date.strftime('%d/%m/%Y') %>
-      <% end %>
-    </div>
-
-    <div class="mb-3">
       <%= form.label :weigth, class: 'form-label' %>
       <%= form.number_field :weigth, class: 'form-control', step: 0.01 %>
     </div>

@@ -21,12 +21,14 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, 
-                                     :document, 
-                                     :phone, 
-                                     :payment_at, 
-                                     :age, 
-                                     :weigth, 
-                                     :height)
+    params.require(:customer).permit(
+      :name, 
+      :document, 
+      :phone, 
+      :payment_at, 
+      :age, 
+      :weigth, 
+      :height
+     )
   end
 end
