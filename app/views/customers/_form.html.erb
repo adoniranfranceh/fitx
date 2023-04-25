@@ -1,33 +1,31 @@
-<div class="container">
-  <%= form_with(model: @customer) do |form| %>
-    <div class="mb-3">
-      <%= form.label :name, class: 'form-label' %>
-      <%= form.text_field :name, class: 'form-control' %>
-    </div>
+<%= form_with(model: @customer) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
 
-    <div class="mb-3">
-      <%= form.label :document, class: 'form-label' %>
-      <%= form.text_field :document, class: 'form-control' %>
-    </div>
+  <div class="mb-3">
+    <%= form.label :document, class: 'form-label' %>
+    <%= form.text_field :document, class: 'form-control' %>
+  </div>
 
-    <div class="mb-3">
-      <%= form.label :phone, class: 'form-label' %>
-      <%= form.phone_field :phone, class: 'form-control' %>
-    </div>
+  <div class="mb-3">
+    <%= form.label :phone, class: 'form-label' %>
+    <%= form.phone_field :phone, class: 'form-control' %>
+  </div>
 
-    <div class="mb-3">
-      <%= form.label :payment_at, class: 'form-label' %>
-      <%= form.date_field :payment_at, class: 'form-control' %>
-    </div>
+  <div class="mb-3">
+    <%= form.label :payment_at, class: 'form-label' %>
+    <%= form.date_field :payment_at, class: 'form-control' %>
+  </div>
 
-    <div class="mb-3">
-      <%= form.label :weigth, class: 'form-label' %>
-      <%= form.number_field :weigth, class: 'form-control', step: 0.01 %>
-    </div>
-    <div class="mb-3">
-      <%= form.label :height, class: 'form-label' %>
-      <%= form.number_field :height, class: 'form-control' %>
-    </div>
-    <%= form.submit 'Salvar' ,class: 'btn btn-primary' %>
-  <% end %>
-</div>
+  <div class="mb-3">
+    <%= form.label :weigth, class: 'form-label' %>
+    <%= form.number_field :weigth, class: 'form-control', step: 0.01 %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :height, class: 'form-label' %>
+    <%= form.number_field :height, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Salvar' ,class: 'btn btn-primary' %>
+<% end %>
