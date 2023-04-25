@@ -15,12 +15,12 @@
  *= require_self
  */
 
-.btn-style {
+.btn-green {
   background: #3cb371;
   color: #fff;
 }
 
-.btn-style:hover {
+.btn-green:hover {
   background: #4cb371;
 }
 
