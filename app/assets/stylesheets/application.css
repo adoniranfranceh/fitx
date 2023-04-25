@@ -23,3 +23,7 @@
 .btn-style:hover {
   background: #4cb371;
 }
+
+.disabled-form {
+  pointer-events:none;
+}
