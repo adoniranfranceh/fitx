@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
     @customers = Customer.all
@@ -22,6 +22,20 @@ class CustomersController < ApplicationController
   end
 
   def edit; end
+
+  def update
+    if @customer.update(customer_params)
+      redirect_to customers_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @customer.destroy
+      redirect_to customers_path, notice: "Cliente #{@customer.name} excluído"
+    end
+  end
 
   private
 

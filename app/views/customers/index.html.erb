@@ -13,12 +13,12 @@
     <tbody>
       <% @customers.each do |customer| %>   
       <tr>
-        <th class="row"><%= customer.id %></th>
+        <td class="row"><%= customer.id %></td>
         <td><%= customer.name %></td>
         <td>
           <%= link_to customer_path(customer), class: "btn btn-green" do  %>
-              <i class="bi bi-eye-fill"></i>
-            <% end %>
+            <i class="bi bi-eye-fill"></i>
+          <% end %>
         </td>
       </tr>
       <% end %>
