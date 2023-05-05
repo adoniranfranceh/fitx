@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+.btn-green {
+  background: #3cb371;
+  color: #fff;
+}
+
+.btn-green:hover {
+  background: #4cb371;
+}
+
+.disabled-form {
+  pointer-events:none;
+}

@@ -1,31 +1,44 @@
 <%= form_with(model: @customer) do |form| %>
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
+  <div class="<%= fieldset_disabled %>">
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :document, class: 'form-label' %>
-    <%= form.text_field :document, class: 'form-control' %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :document, class: 'form-label' %>
+      <%= form.text_field :document, class: 'form-control' %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :phone, class: 'form-label' %>
-    <%= form.phone_field :phone, class: 'form-control' %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :phone, class: 'form-label' %>
+      <%= form.phone_field :phone, class: 'form-control' %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :payment_at, class: 'form-label' %>
-    <%= form.date_field :payment_at, class: 'form-control' %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :payment_at, class: 'form-label' %>
+      <%= form.date_field :payment_at, class: 'form-control' %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :weigth, class: 'form-label' %>
-    <%= form.number_field :weigth, class: 'form-control', step: 0.01 %>
+    <div class="mb-3">
+      <%= form.label :weigth, class: 'form-label' %>
+      <%= form.number_field :weigth, class: 'form-control', step: 0.01 %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :height, class: 'form-label' %>
+      <%= form.number_field :height, class: 'form-control' %>
+    </div>
   </div>
-  <div class="mb-3">
-    <%= form.label :height, class: 'form-label' %>
-    <%= form.number_field :height, class: 'form-control' %>
-  </div>
-  <%= form.submit 'Salvar' ,class: 'btn btn-primary' %>
+  <% if action_name == 'show'  %>
+    <div class="float-end">
+      <%= link_to edit_customer_path(@customer), class:'btn btn-primary' do %>
+        <i class="bi bi-pencil-square">Editar</i>
+      <% end %>
+      <%= link_to customer_path(@customer), method: :delete, class:'btn btn-danger', data: {confirm: "Você quer excluir #{@customer.name}?"} do %>
+        <i class="bi bi-trash-fill">Excluir</i>
+      <% end %>
+    </div>
+  <% else %>
+    <%= form.submit 'Salvar', class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
