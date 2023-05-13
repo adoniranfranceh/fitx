@@ -28,12 +28,11 @@
       <%= form.label :height, class: 'form-label' %>
       <%= form.number_field :height, class: 'form-control' %>
     </div>
-    <div class="mb-3">
-      <%= form.label :cost, class: 'form-label' %>
-      <%= form.number_field :cost, class: 'form-control' %>
-    </div>
   </div>
   <% if action_name == 'show'  %>
+    <%= link_to new_rent_path, class:'btn btn-success float-left' do %>
+      <i class="">Registrar pagamento</i>
+    <% end %>
     <div class="float-end">
       <%= link_to edit_customer_path(@customer), class:'btn btn-primary' do %>
         <i class="bi bi-pencil-square">Editar</i>
@@ -44,5 +43,5 @@
     </div>
   <% else %>
     <%= form.submit 'Salvar', class: 'btn btn-primary' %>
-  <% end %>
+    <% end %>
 <% end %>
