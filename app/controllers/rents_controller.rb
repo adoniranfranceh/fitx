@@ -5,12 +5,21 @@ class RentsController < ApplicationController
   end
 
   def create
-
+    @rent = @customer.rents.build(rent_params)
+    if @rent.save
+      redirect_to @customer, notice: "Novo pagamento adicionado"
+    else
+      :new
+    end
   end
 
   private
 
   def set_customer
     @customer = Customer.find_by(params[:customer])
+  end
+
+  def rent_params
+    params.require(:rent).permit(:cost)
   end
 end 
