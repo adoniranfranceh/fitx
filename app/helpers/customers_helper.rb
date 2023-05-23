@@ -17,7 +17,11 @@ module CustomersHelper
         when -1
           message = 'vence em 1 dia'
         when 0
-          message = 'foi efetuado hoje'
+          unless Date.today.month != rent.created_at.month
+            message = 'foi efetuado hoje'
+          else
+            message = 'venceu'
+          end
         else 
           message = 'está em dia'
         end
