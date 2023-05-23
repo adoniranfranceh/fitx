@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_rent
 
   def index
     @customers = current_user.customers
@@ -41,6 +42,12 @@ class CustomersController < ApplicationController
 
   def set_customer
     @customer = Customer.find(params[:id])
+  end
+
+  def set_rent
+    if @customer
+      @rent = @customer.rents.last
+    end  
   end
 
   def customer_params

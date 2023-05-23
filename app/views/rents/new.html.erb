@@ -1,6 +1,6 @@
-<h1>Registrar pagamento <%= "#{@customer.name}" %></h1>
+<h1>Registrar pagamento <%= @customer.name %></h1>
 
-<%= form_with(model: @rent) do |form| %>
+<%= form_with(model: [@customer, @rent]) do |form| %>
   <div class="<%= fieldset_disabled %>">
     <div class="mb-3">
       <%= form.label :cost, class: 'form-label' %>

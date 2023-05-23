@@ -9,14 +9,14 @@ class RentsController < ApplicationController
     if @rent.save
       redirect_to @customer, notice: "Novo pagamento adicionado"
     else
-      :new
+      render :new, notice: "Em branco"
     end
   end
 
   private
 
   def set_customer
-    @customer = Customer.find_by(params[:customer])
+    @customer = Customer.find(params[:customer_id])
   end
 
   def rent_params
