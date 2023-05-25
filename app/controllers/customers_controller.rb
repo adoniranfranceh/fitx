@@ -1,10 +1,8 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :set_rent
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :index, :filter]
+  before_action :set_rent, only: [:index, :show, :edit ,:filtered_index]
 
-  def index
-    @customers = current_user.customers
-  end
+  def index; end
 
   def show; end
 
@@ -38,10 +36,19 @@ class CustomersController < ApplicationController
     end
   end
 
+  def filtered_index
+    @rent = Rent.last
+    @customers = Customer.overdue_customers(@rent)
+    render 'customers/filtered_index'
+  end
+
   private
 
   def set_customer
-    @customer = Customer.find(params[:id])
+    unless params[:action] == 'index'
+      @customer = Customer.find(params[:id])
+    end
+    @customers = current_user.customers
   end
 
   def set_rent
