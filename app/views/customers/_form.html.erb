@@ -30,6 +30,9 @@
     </div>
   </div>
   <% if action_name == 'show'  %>
+    <%= link_to new_customer_rent_path(@customer), class:'btn btn-success float-left' do %>
+      <i class="">Registrar pagamento</i>
+    <% end %>
     <div class="float-end">
       <%= link_to edit_customer_path(@customer), class:'btn btn-primary' do %>
         <i class="bi bi-pencil-square">Editar</i>
@@ -42,3 +45,5 @@
     <%= form.submit 'Salvar', class: 'btn btn-primary' %>
   <% end %>
 <% end %>
+
+<h1> <%= customer_paid?(@rent, @customer, @customer.name) %></h1>

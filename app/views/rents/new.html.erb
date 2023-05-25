@@ -1,0 +1,10 @@
+<h1>Registrar pagamento <%= @customer.name %></h1>
+
+<%= form_with(model: [@customer, @rent]) do |form| %>
+  <div class="<%= fieldset_disabled %>">
+    <div class="mb-3">
+      <%= form.label :cost, class: 'form-label' %>
+      <%= form.number_field :cost, class: 'form-control', step: 0.1 %>
+    </div>
+    <%= form.submit 'Salvar', class: 'btn btn-primary' %>
+<% end %>
