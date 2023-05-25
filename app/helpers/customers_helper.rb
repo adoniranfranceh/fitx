@@ -1,4 +1,5 @@
 module CustomersHelper
+  attr_reader :message
   def fieldset_disabled
     if action_name == 'show'
       'disabled-form'
@@ -9,26 +10,8 @@ module CustomersHelper
     unless rent
       return "Ainda não há nenhum pagamento"
     else
-      if customer.payment_at.day == rent.created_at.day
-        monthly =  Date.today.day - customer.payment_at.day
-        case monthly
-        when -2 
-          message = 'vence em 2 dias' 
-        when -1
-          message = 'vence em 1 dia'
-        when 0
-          unless Date.today.month != rent.created_at.month
-            message = 'foi efetuado hoje'
-          else
-            message = 'venceu'
-          end
-        else 
-          message = 'está em dia'
-        end
-        return "O pagamento de #{name} #{message}!"
-      else 
-        "#{name} não efetuou pagamento esse mês"
-      end
+      message = customer.check_payment(rent, customer)
+      "O pagamento de #{name} #{message}!"
     end
   end
 end
