@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   has_many :rents
 
   def check_payment(rent, customer)
-    if rent && Date.today.day > payment_at.day && rent.created_at.month != 6
+    if rent && Date.today.day > payment_at.day && rent.created_at.month != Date.today.month
       'está atrasado'
     else
      'está em dia'
