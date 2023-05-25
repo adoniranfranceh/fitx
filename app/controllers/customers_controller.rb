@@ -38,7 +38,7 @@ class CustomersController < ApplicationController
 
   def filtered_index
     @rent = Rent.last
-    @customers = Customer.select{ |customer| customer.check_payment(@rent, customer) == 'está atrasado' }
+    @customers = Customer.overdue_customers(@rent)
     render 'customers/filtered_index'
   end
 

@@ -8,7 +8,7 @@ module CustomersHelper
 
   def customer_paid?(rent, customer, name)
     unless rent
-      return "Ainda não há nenhum pagamento"
+      return "#{name} não possui nenhum pagamento"
     else
       message = customer.check_payment(rent, customer)
       "O pagamento de #{name} #{message}!"

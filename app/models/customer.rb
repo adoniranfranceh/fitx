@@ -4,10 +4,14 @@ class Customer < ApplicationRecord
   has_many :rents
 
   def check_payment(rent, customer)
-    if rent && Date.today.day > payment_at.day && rent.created_at.month != Date.today.month
+    if rent && Date.today.day > payment_at.day && rent.created_at.month != 6
       'está atrasado'
     else
      'está em dia'
     end
+  end
+
+  scope :overdue_customers, -> (rent) do
+    select{ |customer| customer.check_payment(rent, customer) == 'está atrasado' }
   end
 end

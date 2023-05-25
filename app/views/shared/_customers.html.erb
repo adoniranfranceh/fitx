@@ -1,6 +1,6 @@
 <div class="float-end"><%= link_to 'Adicionar novo', new_customer_path, class: 'btn btn-success' %></div>
 <% if action_name == 'index' %>
-  <div><%= link_to 'Clientes que não pagaram', filtered_index_customers_path, class: 'btn btn-danger' %></div>
+  <div><%= link_to 'Clientes em atraso', filtered_index_customers_path, class: 'btn btn-danger' %></div>
 <% end %>
 <div>
   <table class="table">
